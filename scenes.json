@@ -1,0 +1,108 @@
+{
+    "START": {
+        "description": "Ye find yeself in yon dungeon. Ye see a FLASK. Obvious exits are NORTH, SOUTH and DENNIS.",
+        "options": [
+            {
+                "description": "Get Ye FLASK",
+                "goto": "get flask"
+            },
+            {
+                "description": "Go NORTH",
+                "goto": "north"
+            },
+            {
+                "description": "Go SOUTH",
+                "goto": "south"
+            },
+            {
+                "description": "Go DENNIS",
+                "goto": "dennis"
+            }
+        ]
+    },
+    "game over": {
+        "description": "GAME OVER",
+        "goto": "EXIT"
+    },
+    "get flask": {
+        "description": "Ye cannot get the FLASK. It is firmly bolted to a wall which is bolted to the rest of the dungeon which is probably bolted to a castle. Never you mind.",
+        "options": [
+            {
+                "description": "GET YE FLASK!!!",
+                "goto": "really get flask"
+            },
+            {
+                "description": "Leave",
+                "goto": "START"
+            }
+        ]
+    },
+    "really get flask": {
+        "description": "Okay, okay. You unbolt yon FLASK and hold it aloft. A great shaking begins. The dungeon ceiling collapses down on you, crushing you in twain. Apparently, this was a load-bearing FLASK.",
+        "goto": "game over"
+    },
+    "north": {
+        "description": "You go NORTH through yon corridor. You arrive at parapets. Ye see a rope. Obvious exits are SOUTH.",
+        "options": [
+            {
+                "description": "Go SOUTH",
+                "goto": "START"
+            },
+            {
+                "description": "Get ROPE",
+                "goto": "rope"
+            }
+        ]
+    },
+    "rope": {
+        "description": "You attempt to take ye ROPE but alas it is enchanted! It glows a mustard red and smells like a public privy. The ROPE wraps round your neck and hangs you from parapets. With your last breath, you wonder what parapets are.",
+        "goto": "game over"
+    },
+    "south": {
+        "description": "You head south to an enbankment. Or maybe a chasm. You can't decide which. Anyway, ye spies a TRINKET. Obvious exits are NORTH.",
+        "options": [
+            {
+                "description": "Go NORTH",
+                "goto": "START"
+            },
+            {
+                "unless has": "trinket",
+                "description": "Get TRINKET",
+                "goto": "trinket"
+            }
+        ]
+    },
+    "trinket": {
+        "description": "Ye getsts yon TRINKET and discover it to be a bauble. You rejoice at your good fortune. You shove the TRINKET in your pouchel. It kinda hurts.",
+        "give": "trinket",
+        "goto": "south"
+    },
+    "dennis": {
+        "description": "Ye arrive at Dennis. He wears a sporty frock coat and a long jimberjam. He paces about nervously. Obvious exits are NOT DENNIS.",
+        "options": [
+            {
+                "description": "NOT DENNIS",
+                "goto": "START"
+            },
+            {
+                "description": "TALK",
+                "goto": "talk"
+            },
+            {
+                "if has": "trinket",
+                "description": "Give TRINKET",
+                "goto": "give trinket"
+            }
+        ]
+    },
+    "talk": {
+        "description": "You engage Dennis in leisurely discussion. Ye learns that his jimberjam was purchased on sale at a discount market and that he enjoys pacing about nervously. You become bored and begin thinking about parapets.",
+        "goto": "dennis"
+    },
+    "give trinket": {
+        "description": "A novel idea! You givst the TRINKET to Dennis and he happily agrees to tell you what parapets are. With this new knowledge, ye escapes from yon dungeon in order to search for new dungeons and to remain... THY DUNGEONMAN!! You hath won! Congraturation!!",
+        "take": "trinket",
+        "goto": "game over"
+    }
+
+}
